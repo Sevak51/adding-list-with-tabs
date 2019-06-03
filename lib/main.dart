@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
                 });
               },
             ),
-            Products(_products);
+             Products(_products);
           ],
         ),
       ),
