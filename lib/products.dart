@@ -24,7 +24,7 @@ class Products extends StatelessWidget {
                   ),
                 ),
           )
-              .toList(),
+            .toList(),
         )
     );
   }
