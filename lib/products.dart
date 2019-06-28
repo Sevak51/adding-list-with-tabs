@@ -12,8 +12,9 @@ class Products extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset('assets/food.jpg'),
+          Image.asset(products[index]['imageurl']),
           Text(products[index]['title']),
+          Text(products[index]['price'].toString()),
           ButtonBar(
               alignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -22,7 +23,7 @@ class Products extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Product(products[index]['Title'], products[index][Image.asset('assets/food.jpg')])),
+                          builder: (BuildContext context) => Product(products[index]['title'], products[index]['imageurl'], products[index]['price'].toString())),
                     );
                   },
                   child: Text("Details"),
