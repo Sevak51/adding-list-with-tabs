@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class ProductControl extends StatelessWidget {
@@ -11,9 +12,8 @@ class ProductControl extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       onPressed: () {
         addProduct({
-          "title": "Sweets",
-          "imageurl": "assets/food.jpg",
-          "price": 100.00
+          'title':'Chocolate',
+          'imageUrl':'assets/food.jpg'
         });
       },
       child: Text('Add Product'),

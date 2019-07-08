@@ -1,35 +1,37 @@
+
 import 'package:flutter/material.dart';
+import 'dart:async';
 
-class Product extends StatelessWidget {
+class ProductPage extends StatelessWidget {
   final String title;
-  final String image;
-  final String price;
+  final String imageUrl;
 
-  Product(this.title, this.image, this.price);
+  ProductPage(this.title,this.imageUrl);
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+        onWillPop:(){
+          Navigator.pop(context, true);
+          print('Popped up');
+          return Future.value(false);
+        }
+
+        ,child: Scaffold(
       appBar: AppBar(
-        title: Text('EasyList'),
+        title: Text(title),
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Image.asset(image),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[Text(title), Text(price)],
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Go back!'),
-            ),
-          ],
-        ),
-      ),
-    );
+      body: Column(children:<Widget>[
+        Image.asset(imageUrl),
+        Text(
+            title
+        ), RaisedButton (
+          child: Text('Delete'),
+          onPressed: (){
+            Navigator.pop(context, true);
+          },
+        )]),
+    ));
   }
 }

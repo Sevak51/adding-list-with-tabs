@@ -1,16 +1,28 @@
+
 import 'package:flutter/material.dart';
 import 'package:first_app/product_manager.dart';
+import 'package:first_app/pages/products_admin.dart';
 
-class Home extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('EasyList'),
-        ),
-        body: ProductManager(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('EasyList'),
       ),
+      body: ProductManager(),
+      drawer: Drawer(child: Column(children: <Widget>[
+        AppBar(title: Text("Choose",),
+          automaticallyImplyLeading: false,
+        ),
+        ListTile(
+          title: Text("Manage Products"),
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Authorization()));
+          },
+        )
+
+      ],),),
     );
   }
 }
